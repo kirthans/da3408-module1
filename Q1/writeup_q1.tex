@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{parskip}
+
+\title{\vspace{-1.2cm}Module 1 - Q1}
+\author{Name: Kirthan S\\
+Roll No.: DA24B009}
+
+\begin{document}
+\date{}
+\maketitle
+\vspace{-0.6cm}
+
+\subsection*{(a)}
+\textbf{Category: Entanglement, i.e., CACE (Changing Anything Changes Everything)}
+
+The model consumes all input features jointly, so no feature is truly independent. Altering the preprocessing of the ``estimated delivery time" feature moves the learned decision
+boundary and changes outputs that appear completely unrelated.
+
+\subsection*{(b)}
+\textbf{Category: Undeclared Consumers}
+
+A downstream system depends on the model's output through a shared table, with no knowledge on the ML team's side. This invisible linking means any change the ML team makes can break a consumer they do not even know exists, effectively blocking safe changes to the model.
+
+\subsection*{(c)}
+\textbf{Category: Glue Code / Pipeline Jungles}
+
+The system has devolved into a tangle of scripts handling extraction, transformation, and training with no clean orchestration. This makes the pipeline non-reproducible, and nearly impossible to modify safely.
+
+\section*{Proposed mitigation for (a)}
+
+Mitigate the entanglement failure by rigorously testing every feature or preprocessing change before it reaches production, using MLflow experiment tracking. Rather than editing the delivery-time rounding logic directly in production,
+treat the change as a tracked experiment, i.e., log it as an MLflow run with its parameters, and log metrics for all affected downstream tasks, then use MLflow's run comparison to check whether any metric regressed against the baseline before performing the change. Pair this with DVC and Git to version the exact data and code behind each run, so a
+bad change can be rolled back to a known good version.
+\end{document}
