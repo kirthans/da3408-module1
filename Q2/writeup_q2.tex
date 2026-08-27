@@ -13,12 +13,11 @@ Roll No.: DA24B009}
 \maketitle
 \vspace{-0.6cm}
 
-\section*{Setup}
-The Lecture-3 training script was adapted by swapping the predictor from \texttt{RandomForestClassifier}
-to \texttt{MLPClassifier} and the dataset from IRIS to MNIST (\texttt{fetch\_openml("mnist\_784")}, a
-6{,}000-sample subset, pixels scaled to $[0,1]$). Six runs were logged to the \texttt{mnist-mlp}
-experiment, varying two hyperparameters: \texttt{hidden\_layer\_sizes} and \texttt{learning\_rate\_init}.
-The six-run comparison table is provided separately as \texttt{comparison.png}.
+
+\IfFileExists{comparison.png}{%
+\begin{center}\includegraphics[width=\linewidth]{comparison.png}\end{center}
+\vspace{-0.3cm}
+}{}
 
 \section*{Analysis}
 The best-performing run was run~5 (a single hidden layer of 128 units with
@@ -54,3 +53,4 @@ mlflow.log_metric("train_loss", model.loss_)
 \end{verbatim}
 
 \end{document}
+    
