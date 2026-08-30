@@ -11,7 +11,6 @@ where to find each question's answer.
 |----------|----------|----------|
 | **Q1** — Technical Debt Diagnosis | [`Q1/`](Q1/) | `writeup_q1.tex` / `writeup_q1.pdf` — category identification (a/b/c) + mitigation |
 | **Q2** — MLflow Experiment Comparison | [`Q2/`](Q2/) | `train.py` (MLP on MNIST), `comparison.png` (6-run table), `writeup_q2.tex`/`.pdf` (analysis + log code) |
-| **Q3** — DVC Data Versioning & Rollback | [`Q3/`](Q3/) | dataset CSV, `.dvc` files, rollback terminal output, write-up |
 | **Q4** — End-to-End Reproducibility Drill | separate repo (below) | partner reproducibility capstone |
 
 ## Q4 repository (capstone)
